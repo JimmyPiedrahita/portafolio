@@ -81,8 +81,8 @@ function App() {
       name: 'SketchVibes',
       description: t('projectDescriptions.sketchVibes'),
       technologies: ['PHP', 'MySql', 'bootstrap'],
-      githubUrl: 'https://github.com/JimmyPiedrahita/SketchVibes',
-      siteUrl: 'https://practicas.me/SketchVibes/public/index.php',
+      githubUrl: 'https://github.com/JimmyPiedrahita/sketchvibes',
+      siteUrl: 'https://sketchvibes.practicas.me',
       category: 'web',
     },
     {
