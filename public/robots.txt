@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jimmypiedrahita.dev/sitemap.xml
