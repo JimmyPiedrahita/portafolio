@@ -1,6 +1,8 @@
 import './App.css'
 import Menu from './components/Menu'
 import { useTranslation } from './translations'
+import { useLanguage } from './contexts/LanguageContext'
+import { Helmet } from 'react-helmet-async'
 import CursorJellyBlob from './components/CursorJellyBlob'
 import CardSkill from './components/CardSkill'
 import TypeWriter from './components/TypeWriter'
@@ -37,6 +39,7 @@ const LaptopModel = lazy(() => import('./components/LaptopModel'))
 
 function App() {
   const { t } = useTranslation()
+  const { language } = useLanguage()
 
   // Defined projects with categories
   const projects = useMemo(() => [
@@ -104,6 +107,14 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <html lang={language} />
+        <title>{language === 'es' ? 'Jimmy Piedrahita - Desarrollador Full Stack' : 'Jimmy Piedrahita - Full Stack Developer'}</title>
+        <meta name="description" content={language === 'es' 
+          ? 'Portafolio de Jimmy Piedrahita, desarrollador Full Stack. Descubre mis proyectos, habilidades y formas de contacto.'
+          : 'Jimmy Piedrahita\'s portfolio, Full Stack Developer. Discover my projects, skills and contact information.'
+        } />
+      </Helmet>
       <CursorJellyBlob />
       <Menu />
       <div className="main-container">

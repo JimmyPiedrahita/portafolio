@@ -38,6 +38,8 @@ export const LanguageProvider = ({ children }) => {
 
     // Apply the language to the document
     document.documentElement.setAttribute('data-language', language)
+    // Update the html lang attribute
+    document.documentElement.setAttribute('lang', language)
   }, [language])
 
   const value = {

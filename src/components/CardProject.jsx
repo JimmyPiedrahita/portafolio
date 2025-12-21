@@ -5,7 +5,7 @@ import '../styles/CardProject.css'
 function CardProject({ name, image, githubUrl, siteUrl, description, technologies = [] }) {
   return (
     <div className="card-project">
-      <img src={image} alt={name} className="card-project-image" />
+      <img src={image} alt={name} className="card-project-image" loading="lazy" />
       <div className="card-project-content">
         <h3 className="card-project-title">{name}</h3>
         <p className="card-project-description">{description}</p>
