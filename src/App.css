@@ -150,6 +150,7 @@
 }
 
 .about-section-button {
+    font-family: inherit;
     color: var(--text-primary);
     border: 2px solid var(--text-primary);
     border-radius: 100px;

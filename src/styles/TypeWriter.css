@@ -1,6 +1,19 @@
 .typewriter {
-  display: inline-block;
+  display: inline-grid;
   font-weight: bold;
+}
+
+/* Invisible placeholder that reserves space for the longest phrase */
+.typewriter-placeholder {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Visible text that overlays the placeholder */
+.typewriter-text {
+  grid-area: 1 / 1;
 }
 
 .cursor {

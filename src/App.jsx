@@ -23,7 +23,9 @@ function App() {
     <>
       <CursorJellyBlob />
       <Menu />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }
