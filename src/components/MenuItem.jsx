@@ -1,8 +1,20 @@
+import { useLocation, useNavigate } from 'react-router-dom'
 import '../styles/MenuItem.css'
 
 function Button({ label, to, active, onClick }) {
+  const location = useLocation()
+  const navigate = useNavigate()
+  
   const handleClick = (e) => {
     e.preventDefault();
+    
+    // Si no estamos en la página principal, navegar a home con el hash
+    if (location.pathname !== '/') {
+      navigate('/' + to);
+      if (onClick) onClick();
+      return;
+    }
+    
     if (to === '#home' ) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {

@@ -23,79 +23,11 @@ import { MdDownload, MdEmail } from 'react-icons/md'
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoCheckmarkCircle, IoCloseCircle } from 'react-icons/io5'
 import CardProject from '../components/CardProject'
-import Work1 from '../assets/images/project1.webp'
-import Work2 from '../assets/images/project2.webp'
-import Work3 from '../assets/images/project3.webp'
-import Work4 from '../assets/images/project4.webp'
-import Work5 from '../assets/images/project5.webp'
-import Work6 from '../assets/images/project6.webp'
+import { projects } from '../data/projects'
 import { useState, useMemo, lazy, Suspense } from 'react'
 import ContactForm from '../components/ContactForm'
 
 const LaptopModel = lazy(() => import('../components/LaptopModel'))
-
-export const projects = [
-  {
-    id: 'uniscan',
-    image: Work1,
-    name: 'UniScan',
-    descriptionKey: 'projectDescriptions.uniScan',
-    technologies: ['Java', 'Firebase', 'Android Studio'],
-    githubUrl: 'https://github.com/JimmyPiedrahita/UniScan',
-    siteUrl: null,
-    category: 'mobile', 
-  },
-  {
-    id: 'reportapp',
-    image: Work2,
-    name: 'ReportApp',
-    descriptionKey: 'projectDescriptions.reportApp',
-    technologies: ['Java', 'Firebase', 'Android Studio'],
-    githubUrl: 'https://github.com/JimmyPiedrahita/ReportApp',
-    siteUrl: null,
-    category: 'mobile',
-  },
-  {
-    id: 'filtro-protector',
-    image: Work3,
-    name: 'Filtro Protector',
-    descriptionKey: 'projectDescriptions.filterProtector',
-    technologies: ['Kotlin', 'Android Studio'],
-    githubUrl: 'https://github.com/JimmyPiedrahita/filtro-protector',
-    siteUrl: null,
-    category: 'mobile',
-  },
-  {
-    id: 'paintchat',
-    image: Work4,
-    name: 'PaintChat',
-    descriptionKey: 'projectDescriptions.paintChat',
-    technologies: ['Java', 'Firebase', 'Android Studio'],
-    githubUrl: 'https://github.com/JimmyPiedrahita/PaintChat',
-    siteUrl: null,
-    category: 'mobile',
-  },
-  {
-    id: 'sketchvibes',
-    image: Work5,
-    name: 'SketchVibes',
-    descriptionKey: 'projectDescriptions.sketchVibes',
-    technologies: ['PHP', 'MySql', 'bootstrap'],
-    githubUrl: 'https://github.com/JimmyPiedrahita/sketchvibes',
-    siteUrl: 'https://sketchvibes.practicas.me',
-    category: 'web',
-  },
-  {
-    id: 'frutastic-shoot',
-    image: Work6,
-    name: 'Frutastic Shoot',
-    descriptionKey: 'projectDescriptions.frutasticShoot',
-    technologies: ['C#', 'Unity'],
-    githubUrl: 'https://github.com/JimmyPiedrahita/frutastic-shoot',
-    siteUrl: 'https://jimmypiedrahita.itch.io/frutastic-shoot',
-    category: 'videogames',
-  },
-]
 
 function HomePage() {
   const { t } = useTranslation()

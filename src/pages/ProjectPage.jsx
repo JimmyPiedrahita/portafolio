@@ -3,7 +3,7 @@ import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa'
 import { useTranslation } from '../translations'
 import { useLanguage } from '../contexts/LanguageContext'
 import { Helmet } from 'react-helmet-async'
-import { projects } from './HomePage'
+import { projects } from '../data/projects'
 import '../styles/ProjectDetail.css'
 
 function ProjectPage() {
@@ -24,7 +24,7 @@ function ProjectPage() {
     )
   }
 
-  const description = t(project.descriptionKey)
+  const description = t(project.detailDescriptionKey || project.descriptionKey)
 
   return (
     <>
@@ -41,7 +41,7 @@ function ProjectPage() {
 
           <div className="project-page-header">
             <img 
-              src={project.image} 
+              src={project.detailImage || project.image} 
               alt={project.name} 
               className="project-page-image"
             />
@@ -49,10 +49,6 @@ function ProjectPage() {
 
           <div className="project-page-content">
             <h1 className="project-page-title">{project.name}</h1>
-            
-            <div className="project-page-category">
-              <span className="category-badge">{t(project.category)}</span>
-            </div>
 
             <p className="project-page-description">{description}</p>
 

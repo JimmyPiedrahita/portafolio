@@ -80,6 +80,16 @@ export const translations = {
         frutasticShoot: 'Juego 2D para el aprender vocabulario sobre frutas por medio de audios.'
       },
 
+      // Descripciones detalladas de proyectos (para la página de proyecto)
+      projectDetailDescriptions: {
+        uniScan: 'UniScan es una aplicación móvil diseñada para facilitar la consulta de información sobre salones de clase. Utiliza un escáner de códigos QR integrado para identificar el aula y mostrar instantáneamente sus detalles, disponibilidad y horarios asignados. Incluye un módulo para administradores que permite gestionar y actualizar la base de datos de los espacios.',
+        reportApp: 'ReportApp es una solución móvil enfocada en la automatización de reportes institucionales o de mantenimiento. Permite a los usuarios llenar formularios detallados que se sincronizan con una base de datos y generan notificaciones automáticas vía correo electrónico (Gmail API). Cuenta con una interfaz dedicada para que los administradores revisen, filtren y gestionen el estado de los reportes recibidos.',
+        filterProtector: 'Screen filter es una utilidad desarrollada en Kotlin enfocada en la salud visual del usuario. La aplicación ejecuta un servicio en segundo plano que superpone un filtro de pantalla configurable para bloquear la luz azul, ayudando a reducir la fatiga visual durante el uso nocturno o prolongado del dispositivo.',
+        paintChat: 'PaintChat es una red social creativa que combina la mensajería instantánea con el arte digital. Los usuarios pueden crear dibujos a mano alzada y compartirlos en tiempo real con otros usuarios, creando conversaciones visuales únicas. La aplicación utiliza Firebase Realtime Database para sincronizar los dibujos.',
+        sketchVibes: 'SketchVibes es una aplicación web robusta desarrollada con PHP puro bajo el patrón de arquitectura Modelo-Vista-Controlador (MVC). Funciona como una red social para artistas, permitiendo el registro de usuarios, inicio de sesión seguro, y un sistema CRUD completo para subir, editar, visualizar y eliminar bocetos o imágenes en una base de datos SQL.',
+        frutasticShoot: 'Frutastic Shoot es un juego educativo 2D desarrollado en Unity con C#, diseñado para ayudar a niños y estudiantes a aprender vocabulario sobre frutas en ingles. El jugador debe recoger la fruta que aparece en el mapa y seguido se escuchara un audio de la fruta en ingles, al tiempo debe disparar a los enemigos que lo persiguen, combinando diversión y aprendizaje. Incluye un sistema de puntuación para motivar el progreso.'
+      },
+
       // Detalles del proyecto
       projectDetails: {
         technologies: 'Tecnologías utilizadas',
@@ -169,6 +179,16 @@ export const translations = {
           paintChat: 'Social network for sharing drawings in real time as a chat.',
           sketchVibes: 'Web platform for showcasing personal drawings.',
           frutasticShoot: '2D game for learning vocabulary about fruits through audio.'
+        },
+
+        // Detailed project descriptions (for project page)
+        projectDetailDescriptions: {
+          uniScan: 'UniScan is a mobile application designed to facilitate the consultation of classroom information. It uses an integrated QR code scanner to instantly identify the classroom and display its details, availability, and assigned schedules. It includes an admin module that allows managing and updating the database of spaces.',
+          reportApp: 'ReportApp is a mobile solution focused on automating institutional or maintenance reports. It allows users to fill out detailed forms that sync with a database and generate automatic notifications via email (Gmail API). It features a dedicated interface for administrators to review, filter, and manage the status of received reports.',
+          filterProtector: 'Screen Filter is a utility developed in Kotlin focused on the user\'s visual health. The application runs a background service that overlays a configurable screen filter to block blue light, helping to reduce eye strain during nighttime or prolonged device use.',
+          paintChat: 'PaintChat is a creative social network that combines instant messaging with digital art. Users can create freehand drawings and share them in real time with other users, creating unique visual conversations. The application uses Firebase Realtime Database to synchronize the drawings.',
+          sketchVibes: 'SketchVibes is a robust web application developed with pure PHP under the Model-View-Controller (MVC) architecture pattern. It functions as a social network for artists, allowing user registration, secure login, and a complete CRUD system to upload, edit, view, and delete sketches or images in an SQL database.',
+          frutasticShoot: 'Frutastic Shoot is a 2D educational game developed in Unity with C#, designed to help children and students learn vocabulary about fruits in English. The player must collect the fruit that appears on the map and then an audio of the fruit in English will be played, while also shooting at enemies that chase them, combining fun and learning. It includes a scoring system to motivate progress.'
         },
 
         // Project details
