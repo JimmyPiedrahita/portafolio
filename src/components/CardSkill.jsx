@@ -12,7 +12,7 @@ function CardSkill({ title, icon }) {
     >
       <div className="card-skill-content">
         <h3>{title}</h3>
-        <img src={icon} alt={title} />
+        <img src={icon} alt={title} loading="lazy" />
       </div>
     </div>
   )

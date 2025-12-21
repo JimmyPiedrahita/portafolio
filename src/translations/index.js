@@ -78,7 +78,18 @@ export const translations = {
         paintChat: 'Red social para compartirse dibujos en tiempo real a modo de chat.',
         sketchVibes: 'Plataforma web para exponer dibujos personales.',
         frutasticShoot: 'Juego 2D para el aprender vocabulario sobre frutas por medio de audios.'
-      }
+      },
+
+      // Detalles del proyecto
+      projectDetails: {
+        technologies: 'Tecnologías utilizadas',
+        features: 'Características',
+        viewCode: 'Ver código',
+        viewSite: 'Ver sitio'
+      },
+
+      // Cerrar modal
+      close: 'Cerrar'
     },
     en: {
         // Phases
@@ -158,7 +169,18 @@ export const translations = {
           paintChat: 'Social network for sharing drawings in real time as a chat.',
           sketchVibes: 'Web platform for showcasing personal drawings.',
           frutasticShoot: '2D game for learning vocabulary about fruits through audio.'
-        }
+        },
+
+        // Project details
+        projectDetails: {
+          technologies: 'Technologies used',
+          features: 'Features',
+          viewCode: 'View code',
+          viewSite: 'View site'
+        },
+
+        // Close modal
+        close: 'Close'
       }
   }
   

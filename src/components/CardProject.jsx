@@ -1,10 +1,17 @@
 import { FaGithub } from 'react-icons/fa'
 import { FaExternalLinkAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import '../styles/CardProject.css'
 
-function CardProject({ name, image, githubUrl, siteUrl, description, technologies = [] }) {
+function CardProject({ id, name, image, githubUrl, siteUrl, description, technologies = [] }) {
+  const handleExternalLinkClick = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    window.open(e.currentTarget.href, '_blank', 'noopener,noreferrer')
+  }
+
   return (
-    <div className="card-project">
+    <Link to={`/proyecto/${id}`} className="card-project" style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
       <img src={image} alt={name} className="card-project-image" loading="lazy" />
       <div className="card-project-content">
         <h3 className="card-project-title">{name}</h3>
@@ -20,8 +27,7 @@ function CardProject({ name, image, githubUrl, siteUrl, description, technologie
               <a
                 href={githubUrl}
                 className="project-btn github-btn"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={handleExternalLinkClick}
                 aria-label={`Ver proyecto ${name} en GitHub`}
               >
                 <FaGithub size={20} />
@@ -31,8 +37,7 @@ function CardProject({ name, image, githubUrl, siteUrl, description, technologie
               <a
                 href={siteUrl}
                 className="project-btn site-btn"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={handleExternalLinkClick}
                 aria-label={`Visitar sitio web de ${name}`}
               >
                 <FaExternalLinkAlt size={18} />
@@ -41,7 +46,7 @@ function CardProject({ name, image, githubUrl, siteUrl, description, technologie
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
