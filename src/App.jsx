@@ -22,9 +22,9 @@ import CSharpLogo from './assets/icons/csharp.svg'
 import PhpLogo from './assets/icons/php.svg'
 import MySqlLogo from './assets/icons/mysql.svg'
 import TrelloLogo from './assets/icons/trello.svg'
-import { MdDownload } from 'react-icons/md'
+import { MdDownload, MdEmail } from 'react-icons/md'
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
+import { IoCheckmarkCircle, IoCloseCircle } from 'react-icons/io5'
 import CardProject from './components/CardProject'
 import Work1 from './assets/images/project1.webp'
 import Work2 from './assets/images/project2.webp'
@@ -40,6 +40,28 @@ const LaptopModel = lazy(() => import('./components/LaptopModel'))
 function App() {
   const { t } = useTranslation()
   const { language } = useLanguage()
+  const [downloadStatus, setDownloadStatus] = useState(null) // null, 'success', 'error'
+
+  const handleDownload = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('/documents/CV Jimmy Piedrahita - Full Stack.pdf')
+      if (!response.ok) throw new Error('Download failed')
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = 'CV Jimmy Piedrahita - Full Stack.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(url)
+      setDownloadStatus('success')
+    } catch (error) {
+      setDownloadStatus('error')
+    }
+    setTimeout(() => setDownloadStatus(null), 3000)
+  }
 
   // Defined projects with categories
   const projects = useMemo(() => [
@@ -144,10 +166,35 @@ function App() {
             <span className="highlight-description">{t('aboutDescription.part9')}</span>
             <span>{t('aboutDescription.part10')}</span>
           </p>
-          <a href="/documents/CV Jimmy Piedrahita - Full Stack.pdf" download className="about-section-button">
-            <MdDownload className="button-icon" />
-            {t('download')}
-          </a>
+          <button 
+            onClick={handleDownload} 
+            className={`about-section-button ${downloadStatus === 'success' ? 'success' : ''} ${downloadStatus === 'error' ? 'error' : ''}`}
+          >
+            {downloadStatus === 'success' ? (
+              <><IoCheckmarkCircle className="button-icon" /> {t('downloaded')}</>
+            ) : downloadStatus === 'error' ? (
+              <><IoCloseCircle className="button-icon" /> {t('error')}</>
+            ) : (
+              <><MdDownload className="button-icon" /> {t('download')}</>
+            )}
+          </button>
+          <div className='about-social-media'>
+            <a className='social-icon' target='_blank' href="https://www.facebook.com/JAPB2002" aria-label="Perfil de Facebook">
+              <FaFacebook size={28} />
+            </a>
+            <a className='social-icon' target='_blank' href="https://www.instagram.com/jimmy_ap7" aria-label="Perfil de Instagram">
+              <FaInstagram size={28} />
+            </a>
+            <a className='social-icon' target='_blank' href="https://github.com/JimmyPiedrahita" aria-label="Perfil de GitHub">
+              <FaGithub size={28} />
+            </a>
+            <a className='social-icon' target='_blank' href="https://www.linkedin.com/in/jimmypiedrahita" aria-label="Perfil de LinkedIn">
+              <FaLinkedin size={28} />
+            </a>
+            <a className='social-icon' target='_blank' href="mailto:jimmy22piedrahita@gmail.com" aria-label="Enviar correo electrónico">
+              <MdEmail size={28} />
+            </a>
+          </div>
         </section>
         <section id='skills' className="skills-section">
           <h2 className="skills-section-title">{t('skills')}</h2>
@@ -213,26 +260,7 @@ function App() {
         </section>
         <section id='contact' className="contact-section">
           <h2 className="contact-section-title">{t('contactMe')}</h2>
-          <div className='contact-container'>
-            <div className='container-social-media'>
-              <a className='social-icon' target='_blank' href="https://www.facebook.com/JAPB2002" aria-label="Perfil de Facebook">
-                <FaFacebook size={32} />
-              </a>
-              <a className='social-icon' target='_blank' href="https://www.instagram.com/jimmy_ap7" aria-label="Perfil de Instagram">
-                <FaInstagram size={32} />
-              </a>
-              <a className='social-icon' target='_blank' href="https://github.com/JimmyPiedrahita" aria-label="Perfil de GitHub">
-                <FaGithub size={32} />
-              </a>
-              <a className='social-icon' target='_blank' href="https://www.linkedin.com/in/jimmypiedrahita" aria-label="Perfil de LinkedIn">
-                <FaLinkedin size={32} />
-              </a>
-              <a className='social-icon' target='_blank' href="mailto:jimmy22piedrahita@gmail.com" aria-label="Enviar correo electrónico">
-                <MdEmail size={32} />
-              </a>
-            </div>
-            <ContactForm />
-          </div>
+          <ContactForm />
         </section>
       </div>
     </>

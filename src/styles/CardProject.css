@@ -5,11 +5,13 @@
   overflow: hidden;
   display: flex;
   transition: all 0.3s ease;
+  border: 1px solid var(--card-border, transparent);
 }
 
 .card-project:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-card);
+  border-color: var(--card-border, transparent);
 }
 
 .card-project-image {

@@ -50,30 +50,27 @@
   font-family: inherit;
   border-radius: 100px;
   padding: 5px 20px;
-  border: 2px solid transparent;
+  border: 2px solid var(--text-primary);
   font-size: 15px;
   cursor: pointer;
-  background: var(--button-bg);
+  background: transparent;
   color: var(--text-primary);
   font-weight: 600;
-  text-shadow: var(--text-shadow);
   margin: 0 auto;
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
   overflow: hidden;
-  transition: border-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
 }
 
 .contact-form-button:hover {
-  border-color: var(--text-primary);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
-.button-icon {
+.contact-form-button .button-icon {
   transition: color 0.3s ease;
-  filter: drop-shadow(var(--text-shadow));
 }
 
 @keyframes spin {
