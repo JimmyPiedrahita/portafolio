@@ -1,3 +1,5 @@
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../config/firebase";
 import { useRef, useEffect } from 'react'
 import '../styles/ContactForm.css'
 import { useTranslation } from '../translations'
@@ -13,6 +15,9 @@ function ContactForm() {
   // Effect to handle form submission success
   useEffect(() => {
     if (state.succeeded) {
+      logEvent(analytics, 'form_submit_success', {
+        location: 'contact_section'
+      });
       if (formRef.current) {
         formRef.current.reset()
       }

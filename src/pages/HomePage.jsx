@@ -26,6 +26,8 @@ import CardProject from '../components/CardProject'
 import { projects } from '../data/projects'
 import { useState, useMemo, lazy, Suspense } from 'react'
 import ContactForm from '../components/ContactForm'
+import { logEvent } from "firebase/analytics";
+import { analytics } from '../config/firebase'
 
 const LaptopModel = lazy(() => import('../components/LaptopModel'))
 
@@ -49,6 +51,10 @@ function HomePage() {
       document.body.removeChild(link)
       window.URL.revokeObjectURL(url)
       setDownloadStatus('success')
+      logEvent(analytics, 'download_cv', {
+        file_name: 'CV Jimmy Piedrahita',
+        language: language
+      });
     } catch (error) {
       setDownloadStatus('error')
     }

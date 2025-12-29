@@ -1,17 +1,31 @@
-import { FaGithub } from 'react-icons/fa'
-import { FaExternalLinkAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import '../styles/CardProject.css'
+import { logEvent } from "firebase/analytics";
+import { analytics } from '../config/firebase';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; 
+import '../styles/CardProject.css';
 
 function CardProject({ id, name, image, githubUrl, siteUrl, description, technologies = [] }) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    logEvent(analytics, 'select_project', {
+      project_id: id,
+      project_name: name
+    });
+
+    navigate(`/proyecto/${id}`);
+  };
+
   const handleExternalLinkClick = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    window.open(e.currentTarget.href, '_blank', 'noopener,noreferrer')
-  }
+    e.stopPropagation();
+  };
 
   return (
-    <Link to={`/proyecto/${id}`} className="card-project" style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+    <div 
+      className="card-project" 
+      onClick={handleCardClick}
+      style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}
+    >
       <img src={image} alt={name} className="card-project-image" loading="lazy" />
       <div className="card-project-content">
         <h3 className="card-project-title">{name}</h3>
@@ -27,7 +41,9 @@ function CardProject({ id, name, image, githubUrl, siteUrl, description, technol
               <a
                 href={githubUrl}
                 className="project-btn github-btn"
-                onClick={handleExternalLinkClick}
+                onClick={(e) => e.stopPropagation()} 
+                target="_blank" 
+                rel="noopener noreferrer"
                 aria-label={`Ver proyecto ${name} en GitHub`}
               >
                 <FaGithub size={20} />
@@ -37,7 +53,9 @@ function CardProject({ id, name, image, githubUrl, siteUrl, description, technol
               <a
                 href={siteUrl}
                 className="project-btn site-btn"
-                onClick={handleExternalLinkClick}
+                onClick={(e) => e.stopPropagation()}
+                target="_blank" 
+                rel="noopener noreferrer"
                 aria-label={`Visitar sitio web de ${name}`}
               >
                 <FaExternalLinkAlt size={18} />
@@ -46,8 +64,8 @@ function CardProject({ id, name, image, githubUrl, siteUrl, description, technol
           </div>
         </div>
       </div>
-    </Link>
-  )
+    </div>
+  );
 }
 
-export default CardProject
+export default CardProject;
