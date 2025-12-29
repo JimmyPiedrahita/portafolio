@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { LanguageProvider } from './contexts/LanguageContext'
+import './config/firebase'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
